@@ -192,12 +192,14 @@
         height: 200px;
         border-radius: 3px;
         font-size: 30px;
-        margin: 100px;
-        top: 5vh;
-        left: 35vw;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         padding: 1em;
-        position: relative;
-        margin-bottom: 0.25em;
+        position: absolute;
+        margin-bottom: auto;
         vertical-align: top;
         transition: 0.3s color, 0.3s border, 0.3s transform, 0.3s opacity;
     }
@@ -422,5 +424,12 @@
         line-height: 28px;
         text-align: center;
         color: #444752;
+    }
+
+    @media screen and (max-width: 768px) {
+        .box {
+            width: 100px;
+            height: 100px;
+        }
     }
 </style>
