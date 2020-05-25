@@ -4,7 +4,6 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\NewJobNotification;
-use App\Notifications\NewJob;
 use Illuminate\Database\Eloquent\RelationNotFoundException;
 
 use App\Job;
@@ -63,7 +62,7 @@ class JobService{
                     return $user->permission == config('constants.ADMIN') || $user->permission == config('constants.SUPER-ADMIN');
                 });
 
-                Notification::send($admins, new newJob($job));
+                Notification::send($admins, new newJobNotification($job));
 
                 return $job;
             } else {
@@ -71,7 +70,7 @@ class JobService{
                     return $user->permission == config('constants.ADMIN') || $user->permission == config('constants.SUPER-ADMIN');
                 });
 
-                dd(Notification::send($admins, new NewJobNotification($job)));
+                // dd(Notification::send($admins, new NewJobNotification($job)));
 
                 return $job;
             }
